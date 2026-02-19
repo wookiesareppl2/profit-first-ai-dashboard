@@ -4,11 +4,11 @@ module.exports = async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed. Use POST.' });
     }
 
-    const apiKey = process.env.ZAI_API_KEY;
-    const model = process.env.ZAI_MODEL || 'glm-5';
+    const apiKey = process.env.GEMINI_API_KEY;
+    const preferredModel = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 
     if (!apiKey) {
-        return res.status(500).json({ error: 'Missing ZAI_API_KEY environment variable.' });
+        return res.status(500).json({ error: 'Missing GEMINI_API_KEY environment variable.' });
     }
 
     let body = req.body;
@@ -29,50 +29,70 @@ module.exports = async function handler(req, res) {
         return res.status(400).json({ error: 'Missing required field: prompt.' });
     }
 
-    const messages = [];
-    if (systemInstruction) {
-        messages.push({ role: 'system', content: systemInstruction });
-    }
-    messages.push({ role: 'user', content: prompt });
-
     const payload = {
-        model,
-        messages,
-        stream: false
+        contents: [{ parts: [{ text: prompt }] }]
     };
 
-    if (isJson) {
-        payload.response_format = { type: 'json_object' };
+    if (systemInstruction) {
+        payload.systemInstruction = { parts: [{ text: systemInstruction }] };
     }
 
-    const endpoint = 'https://api.z.ai/api/paas/v4/chat/completions';
+    if (isJson) {
+        payload.generationConfig = { responseMimeType: 'application/json' };
+    }
+
+    const modelCandidates = Array.from(
+        new Set([preferredModel, 'gemini-2.0-flash', 'gemini-1.5-flash'])
+    );
 
     try {
-        const upstream = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept-Language': 'en-US,en',
-                Authorization: `Bearer ${apiKey}`
-            },
-            body: JSON.stringify(payload)
-        });
+        let lastErrorStatus = 500;
+        let lastErrorMessage = 'Gemini request failed.';
 
-        const data = await upstream.json().catch(() => ({}));
-        if (!upstream.ok) {
-            return res.status(upstream.status).json({
-                error: data?.error?.message || data?.msg || 'Z.ai request failed.'
+        for (const model of modelCandidates) {
+            const endpoint =
+                `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}` +
+                `:generateContent?key=${encodeURIComponent(apiKey)}`;
+
+            const upstream = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
             });
+
+            const data = await upstream.json().catch(() => ({}));
+            if (!upstream.ok) {
+                lastErrorStatus = upstream.status;
+                lastErrorMessage = data?.error?.message || 'Gemini request failed.';
+
+                // If the model is unavailable for this key, try the next candidate.
+                if (
+                    upstream.status === 400 ||
+                    upstream.status === 404
+                ) {
+                    const msg = String(lastErrorMessage).toLowerCase();
+                    if (msg.includes('not found') || msg.includes('unsupported') || msg.includes('not available')) {
+                        continue;
+                    }
+                }
+
+                return res.status(lastErrorStatus).json({ error: lastErrorMessage });
+            }
+
+            const text = (data?.candidates?.[0]?.content?.parts || [])
+                .map((part) => part?.text || '')
+                .join('\n')
+                .trim();
+
+            if (!text) {
+                return res.status(502).json({ error: 'Gemini returned an empty response.' });
+            }
+
+            return res.status(200).json({ text });
         }
 
-        const text = String(data?.choices?.[0]?.message?.content || '').trim();
-
-        if (!text) {
-            return res.status(502).json({ error: 'Z.ai returned an empty response.' });
-        }
-
-        return res.status(200).json({ text });
+        return res.status(lastErrorStatus).json({ error: lastErrorMessage });
     } catch {
-        return res.status(500).json({ error: 'Failed to reach Z.ai API.' });
+        return res.status(500).json({ error: 'Failed to reach Gemini API.' });
     }
 };
