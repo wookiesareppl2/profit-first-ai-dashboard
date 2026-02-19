@@ -6,7 +6,6 @@ This project is now deployment-ready for GitHub + Vercel.
 
 - `index.html`: Main frontend app (converted from your markdown experiment).
 - `api/gemini.js`: Vercel serverless function proxy for Z.ai API calls.
-- `vercel.json`: Vercel runtime config.
 - `.env.example`: Required environment variable template.
 
 ## Deploy to Vercel
