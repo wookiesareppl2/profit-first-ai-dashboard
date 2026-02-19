@@ -428,7 +428,7 @@
         <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">  
             <div class="flex items-center justify-between gap-4">  
                 <div>  
-                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-700 mono">$ Profit First Studio</span>  
+                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-700 mono">Profit First Studio ZA</span>  
                     <h1 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-4xl">Build a Better Cash-Flow Operating System</h1>  
                     <p class="mt-2 max-w-3xl text-slate-600">Interactive Profit First diagnostics, allocation planning, and AI-guided decision support in one dashboard.</p>  
                 </div>  
@@ -500,11 +500,11 @@
                             <div class="grid grid-cols-2 gap-2">  
                                 <div class="rounded-lg border border-teal-100 bg-teal-50 p-3">  
                                     <p class="text-xs uppercase tracking-wide text-teal-700">Profit Reserved</p>  
-                                    <p id="core-profit-amount" class="text-lg font-bold text-teal-800">$0.00</p>  
+                                    <p id="core-profit-amount" class="text-lg font-bold text-teal-800">R0.00</p>  
                                 </div>  
                                 <div class="rounded-lg border border-slate-200 bg-slate-50 p-3">  
                                     <p class="text-xs uppercase tracking-wide text-slate-700">OpEx Budget</p>  
-                                    <p id="core-opex-amount" class="text-lg font-bold text-slate-800">$0.00</p>  
+                                    <p id="core-opex-amount" class="text-lg font-bold text-slate-800">R0.00</p>  
                                 </div>  
                             </div>  
                             <p id="core-savings-msg" class="text-xs text-slate-600"></p>  
@@ -520,7 +520,7 @@
                     <p class="mt-1 text-sm text-slate-600">Revenue lands here, then gets allocated intentionally.</p>  
                     <div class="mt-3 flex flex-wrap gap-1.5 text-xs">  
                         <span class="rounded-md bg-slate-100 px-2 py-1 text-slate-700">Watch: reactive spending</span>  
-                        <span class="rounded-md bg-emerald-100 px-2 py-1 text-emerald-700">KPI: near $0 after allocation</span>  
+                        <span class="rounded-md bg-emerald-100 px-2 py-1 text-emerald-700">KPI: near R0 after allocation</span>  
                     </div>  
                 </div>  
                 <div class="panel-shell p-4 border-t-4 border-teal-600 reveal delay-1">  
@@ -575,18 +575,18 @@
 
                         <div class="sub-panel p-4 space-y-4">  
                             <p class="text-xs uppercase tracking-[0.16em] text-slate-500">Revenue Setup</p>  
-                            <p class="text-xs text-slate-600">Real Revenue = Top Line Revenue - Materials & Subs</p>  
+                            <p class="text-xs text-slate-600">Real Revenue = Top Line Revenue - Direct Costs (materials + subcontractors)</p>  
                             <div>  
                                 <label class="block text-sm font-medium text-stone-700">Top Line Revenue (Annual)</label>  
                                 <input type="number" id="input-revenue" class="mt-1 block w-full border border-stone-300 rounded-md p-2" oninput="calculateAssessment()">  
                             </div>  
                             <div>  
-                                <label class="block text-sm font-medium text-stone-700">Materials & Subs (Annual)</label>  
+                                <label class="block text-sm font-medium text-stone-700">Direct Costs (Annual, ZAR)</label>  
                                 <input type="number" id="input-materials" class="mt-1 block w-full border border-stone-300 rounded-md p-2" oninput="calculateAssessment()">  
                             </div>  
                             <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-3">  
                                 <label class="text-xs font-bold uppercase tracking-wide text-emerald-800">Real Revenue</label>  
-                                <div id="display-real-revenue" class="text-2xl font-bold text-emerald-700">$0.00</div>  
+                                <div id="display-real-revenue" class="text-2xl font-bold text-emerald-700">R0.00</div>  
                             </div>  
                             <div class="grid grid-cols-2 gap-2">  
                                 <button onclick="loadAssessmentSample()" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition">Load Sample</button>  
@@ -595,7 +595,7 @@
                         </div>
 
                         <div class="sub-panel p-4 space-y-3">  
-                            <p class="text-xs uppercase tracking-[0.16em] text-slate-500">Current Allocations (Annual $)</p>  
+                            <p class="text-xs uppercase tracking-[0.16em] text-slate-500">Current Allocations (Annual ZAR)</p>  
                             <div>  
                                 <label class="block text-sm font-medium text-stone-700">Profit Distribution</label>  
                                 <input type="number" id="input-profit" class="mt-1 block w-full border border-stone-300 rounded-md p-2" oninput="calculateAssessment()">  
@@ -616,7 +616,7 @@
 
                         <div class="sub-panel p-4">  
                             <p id="assessment-tier-badge" class="inline-flex rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-cyan-800">Target Tier: Starter</p>  
-                            <p id="assessment-tier-note" class="mt-2 text-sm text-slate-600">Real Revenue below $250,000 maps to Starter TAP targets.</p>  
+                            <p id="assessment-tier-note" class="mt-2 text-sm text-slate-600">Real Revenue below R4,500,000 maps to Starter TAP targets.</p>  
                         </div>  
                     </aside>
 
@@ -638,7 +638,7 @@
                         <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">  
                             <div class="rounded-xl border border-slate-200 bg-white p-4">  
                                 <p class="text-xs uppercase tracking-wide text-slate-500">Real Revenue</p>  
-                                <p id="assessment-kpi-revenue" class="mt-1 text-xl font-bold text-slate-900">$0.00</p>  
+                                <p id="assessment-kpi-revenue" class="mt-1 text-xl font-bold text-slate-900">R0.00</p>  
                             </div>  
                             <div class="rounded-xl border border-slate-200 bg-white p-4">  
                                 <p class="text-xs uppercase tracking-wide text-slate-500">Total CAP %</p>  
@@ -691,12 +691,12 @@
                         <div class="sub-panel p-5 space-y-4">  
                             <div>  
                                 <label class="block text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Current Income Balance</label>  
-                                <input type="number" id="calc-income" class="mt-2 w-full border p-3 text-lg font-semibold" value="10000" oninput="updateAllocationCalc()">  
+                                <input type="number" id="calc-income" class="mt-2 w-full border p-3 text-lg font-semibold" value="100000" oninput="updateAllocationCalc()">  
                             </div>  
                             <div class="grid grid-cols-3 gap-2">  
-                                <button onclick="setAllocationIncome(5000)" class="rounded-lg border border-slate-300 bg-white px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">$5k</button>  
-                                <button onclick="setAllocationIncome(10000)" class="rounded-lg border border-slate-300 bg-white px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">$10k</button>  
-                                <button onclick="setAllocationIncome(25000)" class="rounded-lg border border-slate-300 bg-white px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">$25k</button>  
+                                <button onclick="setAllocationIncome(50000)" class="rounded-lg border border-slate-300 bg-white px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">R50k</button>  
+                                <button onclick="setAllocationIncome(100000)" class="rounded-lg border border-slate-300 bg-white px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">R100k</button>  
+                                <button onclick="setAllocationIncome(250000)" class="rounded-lg border border-slate-300 bg-white px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">R250k</button>  
                             </div>  
                         </div>
 
@@ -761,19 +761,19 @@
                         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">  
                             <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-4">  
                                 <p class="text-xs uppercase font-bold tracking-wide text-emerald-700">Transfer to Profit</p>  
-                                <p id="out-profit" class="mt-1 text-2xl font-bold text-emerald-800">$0.00</p>  
+                                <p id="out-profit" class="mt-1 text-2xl font-bold text-emerald-800">R0.00</p>  
                             </div>  
                             <div class="rounded-xl border border-blue-200 bg-blue-50 p-4">  
                                 <p class="text-xs uppercase font-bold tracking-wide text-blue-700">Transfer to Owner Pay</p>  
-                                <p id="out-comp" class="mt-1 text-2xl font-bold text-blue-800">$0.00</p>  
+                                <p id="out-comp" class="mt-1 text-2xl font-bold text-blue-800">R0.00</p>  
                             </div>  
                             <div class="rounded-xl border border-amber-200 bg-amber-50 p-4">  
                                 <p class="text-xs uppercase font-bold tracking-wide text-amber-700">Transfer to Tax</p>  
-                                <p id="out-tax" class="mt-1 text-2xl font-bold text-amber-800">$0.00</p>  
+                                <p id="out-tax" class="mt-1 text-2xl font-bold text-amber-800">R0.00</p>  
                             </div>  
                             <div class="rounded-xl border border-slate-300 bg-slate-50 p-4">  
                                 <p class="text-xs uppercase font-bold tracking-wide text-slate-700">Operating Budget</p>  
-                                <p id="out-opex" class="mt-1 text-2xl font-bold text-slate-800">$0.00</p>  
+                                <p id="out-opex" class="mt-1 text-2xl font-bold text-slate-800">R0.00</p>  
                             </div>  
                         </div>
 
@@ -791,10 +791,10 @@
                                 <p class="text-xs uppercase tracking-wide text-slate-500">Execute in sequence</p>  
                             </div>  
                             <div class="mt-3 grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">  
-                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">1. Profit: <span id="check-profit-amt" class="font-bold text-slate-900">$0.00</span></div>  
-                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">2. Owner Pay: <span id="check-comp-amt" class="font-bold text-slate-900">$0.00</span></div>  
-                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">3. Tax: <span id="check-tax-amt" class="font-bold text-slate-900">$0.00</span></div>  
-                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">4. OpEx Cap: <span id="check-opex-amt" class="font-bold text-slate-900">$0.00</span></div>  
+                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">1. Profit: <span id="check-profit-amt" class="font-bold text-slate-900">R0.00</span></div>  
+                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">2. Owner Pay: <span id="check-comp-amt" class="font-bold text-slate-900">R0.00</span></div>  
+                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">3. Tax: <span id="check-tax-amt" class="font-bold text-slate-900">R0.00</span></div>  
+                                <div class="rounded-lg border border-slate-200 bg-white p-3 text-slate-700">4. OpEx Cap: <span id="check-opex-amt" class="font-bold text-slate-900">R0.00</span></div>  
                             </div>  
                         </div>
                     </section>  
@@ -826,8 +826,8 @@
                                     <button onclick="clearExpenseAudit()" class="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50">Clear</button>  
                                 </div>  
                             </div>  
-                            <p class="text-xs text-slate-600">Paste one expense per line in the format: `Item $Amount`.</p>  
-                            <textarea id="expense-input" class="w-full h-64 border rounded-xl p-4 text-sm mono bg-stone-50" placeholder="Adobe Creative Cloud $65&#10;Amazon Web Services $240&#10;Office Snacks $95&#10;Uber Rides $180"></textarea>  
+                            <p class="text-xs text-slate-600">Paste one expense per line in the format: `Item RAmount`.</p>  
+                            <textarea id="expense-input" class="w-full h-64 border rounded-xl p-4 text-sm mono bg-stone-50" placeholder="Xero Subscription R699&#10;FNB Bank Fees R380&#10;Takealot Office Supplies R1,250&#10;Uber Rides R950"></textarea>  
                             <button id="btn-ai-audit" onclick="generateExpenseAudit()" class="w-full bg-gradient-to-r from-teal-600 to-cyan-700 text-white font-bold py-3 rounded-xl flex justify-center items-center gap-2 transition shadow">  
                                 <span id="ai-audit-text">Run AI Expense Audit</span>  
                                 <div id="ai-audit-loader" class="loading-spinner hidden"></div>  
@@ -1044,13 +1044,13 @@
             if (!badge || !note) return;
 
             let tier = 'Starter';
-            let noteText = 'Real Revenue below $250,000 maps to Starter TAP targets.';
-            if (realRev > 500000) {
+            let noteText = `Real Revenue below ${formatCurrency(STARTER_MAX_REAL_REVENUE)} maps to Starter TAP targets.`;
+            if (realRev > GROWTH_MAX_REAL_REVENUE) {
                 tier = 'Scale';
-                noteText = 'Real Revenue above $500,000 maps to Scale TAP targets.';
-            } else if (realRev > 250000) {
+                noteText = `Real Revenue above ${formatCurrency(GROWTH_MAX_REAL_REVENUE)} maps to Scale TAP targets.`;
+            } else if (realRev > STARTER_MAX_REAL_REVENUE) {
                 tier = 'Growth';
-                noteText = 'Real Revenue between $250,000 and $500,000 maps to Growth TAP targets.';
+                noteText = `Real Revenue between ${formatCurrency(STARTER_MAX_REAL_REVENUE)} and ${formatCurrency(GROWTH_MAX_REAL_REVENUE)} maps to Growth TAP targets.`;
             }
 
             badge.innerText = `Target Tier: ${tier}`;
@@ -1102,12 +1102,12 @@
         }
 
         function loadAssessmentSample() {
-            document.getElementById('input-revenue').value = 480000;
-            document.getElementById('input-materials').value = 90000;
-            document.getElementById('input-profit').value = 12000;
-            document.getElementById('input-pay').value = 128000;
-            document.getElementById('input-tax').value = 45000;
-            document.getElementById('input-opex').value = 205000;
+            document.getElementById('input-revenue').value = 8600000;
+            document.getElementById('input-materials').value = 1800000;
+            document.getElementById('input-profit').value = 260000;
+            document.getElementById('input-pay').value = 2450000;
+            document.getElementById('input-tax').value = 960000;
+            document.getElementById('input-opex').value = 3200000;
             calculateAssessment();
         }
 
@@ -1124,12 +1124,12 @@
 
         function loadExpenseSample() {
             const sample = [
-                'Adobe Creative Cloud $65',
-                'Amazon Web Services $240',
-                'Notion Team Plan $48',
-                'Office Snacks $95',
-                'Uber Rides $180',
-                'Contractor QA Support $420'
+                'Xero Subscription R699',
+                'FNB Bank Fees R380',
+                'Takealot Office Supplies R1,250',
+                'Cell C Mobile Data R549',
+                'Uber Rides R950',
+                'Freelance QA Support R8,500'
             ].join('\n');
 
             const input = document.getElementById('expense-input');
@@ -1212,6 +1212,11 @@
                 taps: { profit: 5, owner: 50, tax: 15, opex: 30 }  
             }  
         };
+        const REGION = 'South Africa';
+        const CURRENCY_LOCALE = 'en-ZA';
+        const CURRENCY_CODE = 'ZAR';
+        const STARTER_MAX_REAL_REVENUE = 4500000;
+        const GROWTH_MAX_REAL_REVENUE = 9000000;
 
         let assessmentChartInstance = null;  
         let allocationDonutInstance = null;  
@@ -1370,18 +1375,28 @@
             if (hint) hint.innerText = 'Analyzing your current CAPs vs TAPs snapshot...';
 
             const prompt = `Based on these Profit First numbers:  
+            Region: ${REGION}
+            Currency: ${CURRENCY_CODE}
             Real Revenue: ${state.assessment.realRevenue}  
             Actuals (CAPs): Profit ${state.assessment.caps.profit}%, Owner Pay ${state.assessment.caps.owner}%, Tax ${state.assessment.caps.tax}%, OpEx ${state.assessment.caps.opex}%  
             Targets (TAPs): Profit ${state.assessment.taps.profit}%, Owner Pay ${state.assessment.taps.owner}%, Tax ${state.assessment.taps.tax}%, OpEx ${state.assessment.taps.opex}%  
             Provide 3 specific, encouraging, yet firm actionable steps to improve financial health. Keep it under 150 words.`;
 
             try {  
-                const result = await geminiRequest(prompt, "You are an expert Profit First Certified Professional. Be encouraging and strategic.");  
+                const result = await geminiRequest(
+                    prompt,
+                    "You are an expert Profit First Certified Professional for South Africa. Respond in ZAR. Include South African context where relevant (SARS tax obligations and VAT). Be encouraging and strategic."
+                );  
                 content.innerText = result;  
                 container.classList.remove('hidden');  
                 if (hint) hint.innerText = 'AI brief generated from your current data.';
             } catch (err) {  
-                content.innerText = `AI request failed: ${err?.message || 'Unknown error. Please try again.'}`;  
+                const errMsg = err?.message || 'Unknown error. Please try again.';
+                if (/missing gemini api key|gemini_api_key|google_api_key/i.test(errMsg)) {
+                    content.innerText = 'AI request failed: backend key is not configured. Set GEMINI_API_KEY in Vercel Project Settings and redeploy.';
+                } else {
+                    content.innerText = `AI request failed: ${errMsg}`;
+                }
                 container.classList.remove('hidden');  
                 if (hint) hint.innerText = 'Review the error details above.';
             } finally {  
@@ -1411,7 +1426,7 @@
             loader.classList.remove('hidden');
             if (status) status.innerText = 'Analyzing expense list and categorizing actions...';
 
-            const system = "You are an efficiency expert. Categorize expenses into 'Keep' (essential for production), 'Cut' (non-essential, luxury, or redundant), or 'Review' (can be replaced with cheaper alternative). Return JSON: { results: [{ item, action, why }] }";  
+            const system = "You are an efficiency expert focused on South African SMB operations. Categorize expenses into 'Keep' (essential for production), 'Cut' (non-essential, luxury, or redundant), or 'Review' (can be replaced with cheaper alternative). Keep reasoning aligned to South African business context, including SARS/VAT where relevant. Return JSON: { results: [{ item, action, why }] }";  
               
             try {  
                 const response = await geminiRequest(`Audit these expenses: ${rawText}`, system, true);  
@@ -1451,7 +1466,12 @@
                 updateAuditSummary(normalized);
                 if (status) status.innerText = `Audit complete. ${normalized.length} expense item${normalized.length > 1 ? 's' : ''} analyzed.`;
             } catch (err) {  
-                if (status) status.innerText = `Audit failed: ${err?.message || 'Unknown error'}. Try a smaller or cleaner list.`;
+                const errMsg = err?.message || 'Unknown error';
+                if (/missing gemini api key|gemini_api_key|google_api_key/i.test(errMsg)) {
+                    if (status) status.innerText = 'Audit failed: AI backend not configured. Set GEMINI_API_KEY in Vercel Project Settings, redeploy, then retry.';
+                } else if (status) {
+                    status.innerText = `Audit failed: ${errMsg}. Try a smaller or cleaner list.`;
+                }
             } finally {  
                 btn.disabled = false;  
                 text.innerText = "Run AI Expense Audit";  
@@ -1482,14 +1502,23 @@
             if (sendBtn) sendBtn.disabled = true;
 
             try {  
-                const response = await geminiRequest(query, "You are a Profit First methodology coach. Only answer based on the books Profit First, Clockwork, or Fix This Next by Mike Michalowicz. Keep answers practical and concise with numbered steps when applicable.");  
+                const response = await geminiRequest(
+                    query,
+                    "You are a Profit First methodology coach for South African businesses. Keep answers practical and concise with numbered steps when useful, use ZAR examples, and include South African context (SARS and VAT) when relevant. Base advice on Profit First, Clockwork, and Fix This Next by Mike Michalowicz."
+                );  
                 loadingDiv.innerText = response;  
                 loadingDiv.classList.remove('text-stone-400', 'italic');  
                 loadingDiv.classList.add('text-stone-600');  
                 if (status) status.innerText = 'Response ready.';
             } catch (e) {  
-                loadingDiv.innerText = "The connection to the methodology vault was lost.";  
-                if (status) status.innerText = 'Connection issue. Please retry.';
+                const errMsg = e?.message || '';
+                if (/missing gemini api key|gemini_api_key|google_api_key/i.test(errMsg)) {
+                    loadingDiv.innerText = "AI backend key is missing. Configure GEMINI_API_KEY and redeploy.";
+                    if (status) status.innerText = 'Backend configuration issue.';
+                } else {
+                    loadingDiv.innerText = "The connection to the methodology vault was lost.";  
+                    if (status) status.innerText = 'Connection issue. Please retry.';
+                }
             }  
             if (sendBtn) sendBtn.disabled = false;
             history.scrollTop = history.scrollHeight;  
@@ -1505,8 +1534,8 @@
             state.assessment.realRevenue = realRev;
 
             let taps = { profit: 5, owner: 50, tax: 15, opex: 30 };  
-            if (realRev > 250000) taps = { profit: 10, owner: 35, tax: 15, opex: 40 };  
-            if (realRev > 500000) taps = { profit: 15, owner: 20, tax: 15, opex: 50 };  
+            if (realRev > STARTER_MAX_REAL_REVENUE) taps = { profit: 10, owner: 35, tax: 15, opex: 40 };  
+            if (realRev > GROWTH_MAX_REAL_REVENUE) taps = { profit: 15, owner: 20, tax: 15, opex: 50 };  
             state.assessment.taps = taps;
             setAssessmentTier(realRev);
 
@@ -1662,7 +1691,9 @@
             }  
         }
 
-        function formatCurrency(num) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num); }
+        function formatCurrency(num) {
+            return new Intl.NumberFormat(CURRENCY_LOCALE, { style: 'currency', currency: CURRENCY_CODE }).format(num);
+        }
 
         function initAssessmentChart() {  
             const ctx = document.getElementById('assessmentChart').getContext('2d');  

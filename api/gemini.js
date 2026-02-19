@@ -4,11 +4,17 @@ module.exports = async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed. Use POST.' });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey =
+        process.env.GEMINI_API_KEY ||
+        process.env.GOOGLE_API_KEY ||
+        process.env.AI_STUDIO_API_KEY;
     const preferredModel = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 
     if (!apiKey) {
-        return res.status(500).json({ error: 'Missing GEMINI_API_KEY environment variable.' });
+        return res.status(500).json({
+            error:
+                'Missing Gemini API key. Set GEMINI_API_KEY (or GOOGLE_API_KEY) in your environment and redeploy/restart.'
+        });
     }
 
     let body = req.body;

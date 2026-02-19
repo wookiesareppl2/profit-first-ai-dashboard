@@ -14,6 +14,7 @@ This project is now deployment-ready for GitHub + Vercel.
 2. In Vercel, click **Add New Project** and import that repo.
 3. In project settings, add environment variable:
    - `GEMINI_API_KEY` = your Google AI Studio API key
+     - Fallback names also supported: `GOOGLE_API_KEY`, `AI_STUDIO_API_KEY`
    - `GEMINI_MODEL` = `gemini-2.0-flash` (optional)
 4. Deploy.
 
@@ -24,3 +25,9 @@ This project is now deployment-ready for GitHub + Vercel.
 3. Open `http://localhost:3000`
 
 This local dev server does not deploy and does not modify your live Vercel project.
+
+## Regional setup
+
+- The dashboard is configured for South Africa context:
+  - Currency formatting: `ZAR` (`en-ZA`)
+  - AI guidance prompts: South Africa-focused wording (SARS/VAT-aware)
